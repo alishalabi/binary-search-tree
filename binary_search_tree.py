@@ -17,14 +17,16 @@ class BinarySearchTree:
     def __init__(self, root=None):
         self.root = root
 
-    def add(self, node, current_node):
-        # Item already exists, return nothing
-        if node.data == current_node.data:
-            print("Node data already in Binary Search Tree")
-            return self
+    def add(self, node, current_node=None):
         # Base case: empty binary tree, add as root
         if self.root == None:
             self.root = node
+            return self
+        else:
+            current_node = self.root
+        # Item already exists, return nothing
+        if node.data == current_node.data:
+            print("Node data already in Binary Search Tree")
             return self
         # Begin traversal at root node
         # See if data belongs on left or right of current node
@@ -48,10 +50,19 @@ class BinarySearchTree:
                 return self.add(node, current_node.right_child)
 
 
-nodeA = BinaryTreeNode("A")
-nodeB = BinaryTreeNode("B")
-nodeB = BinaryTreeNode("B")
+nodeA = BinaryTreeNode(4)
+nodeB = BinaryTreeNode(2)
+# print(nodeB)
+nodeC = BinaryTreeNode(5)
+nodeD = BinaryTreeNode(1)
+nodeE = BinaryTreeNode(3)
 test_tree = BinarySearchTree()
+
+test_tree.add(nodeA)
+# print(f"Tree Root's data (should be 4): {test_tree.root.data}")
+test_tree.add(nodeB)
+# print(nodeA.left_child)
+# print(f"Root's left child (should be 2): {test_tree.root.left_child.data}")
 
 # print(f"Node A: {nodeA.data}")
 # print(f"Node B: {nodeB.data}")
