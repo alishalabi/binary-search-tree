@@ -21,8 +21,10 @@ class BinarySearchTree:
         # Base case: empty binary tree, add as root
         if self.root == None:
             self.root = node
+            print("Adding root")
             return self
-        else:
+        # else:
+        if current_node == None:
             current_node = self.root
         # Item already exists, return nothing
         if node.data == current_node.data:
@@ -31,6 +33,8 @@ class BinarySearchTree:
         # Begin traversal at root node
         # See if data belongs on left or right of current node
         # Left:
+        print(f"node.data: {node.data}")
+        print(f"current_node.data: {current_node.data}")
         if node.data < current_node.data:
             # No left value, add node
             if current_node.left_child == None:
@@ -38,6 +42,7 @@ class BinarySearchTree:
             # Left value exists, recursively call add
             # with left child as current
             else:
+                print(f"Current node's left child: {current_node.left_child.data}")
                 return self.add(node, current_node.left_child)
         # Right:
         elif node.data > current_node.data:
@@ -47,6 +52,7 @@ class BinarySearchTree:
             # Right value exists, recursively call add
             # with right child as current
             else:
+                print(f"Current node's right child: {current_node.right_child.data}")
                 return self.add(node, current_node.right_child)
 
 
@@ -62,7 +68,15 @@ test_tree.add(nodeA)
 # print(f"Tree Root's data (should be 4): {test_tree.root.data}")
 test_tree.add(nodeB)
 # print(nodeA.left_child)
-# print(f"Root's left child (should be 2): {test_tree.root.left_child.data}")
+print(f"Root's left child (should be 2): {test_tree.root.left_child.data}")
+# print(f"Left's left's data (should be None): {test_tree.root.left_child.left_child}")
+test_tree.add(nodeC)
+print(f"Root's right child (should be 5): {test_tree.root.right_child.data}")
+test_tree.add(nodeD)
+# test_tree.add(nodeE)
+print(f"Root's left's left (should be 1): {test_tree.root.left_child.left_child.data}")
+# print(f"Root's left's right (should be 3): {test_tree.root.left_child.right_child.data}")
+
 
 # print(f"Node A: {nodeA.data}")
 # print(f"Node B: {nodeB.data}")
