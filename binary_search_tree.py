@@ -33,8 +33,8 @@ class BinarySearchTree:
         # Begin traversal at root node
         # See if data belongs on left or right of current node
         # Left:
-        print(f"node.data: {node.data}")
-        print(f"current_node.data: {current_node.data}")
+        # print(f"Node.data: {node.data}")
+        # print(f"Current_node.data: {current_node.data}")
         if node.data < current_node.data:
             # No left value, add node
             if current_node.left_child == None:
@@ -72,11 +72,8 @@ print(f"Root's left child (should be 2): {test_tree.root.left_child.data}")
 # print(f"Left's left's data (should be None): {test_tree.root.left_child.left_child}")
 test_tree.add(nodeC)
 print(f"Root's right child (should be 5): {test_tree.root.right_child.data}")
+print(f"Root's right's right (should be None): {test_tree.root.right_child.right_child}")
 test_tree.add(nodeD)
-# test_tree.add(nodeE)
+test_tree.add(nodeE)
 print(f"Root's left's left (should be 1): {test_tree.root.left_child.left_child.data}")
-# print(f"Root's left's right (should be 3): {test_tree.root.left_child.right_child.data}")
-
-
-# print(f"Node A: {nodeA.data}")
-# print(f"Node B: {nodeB.data}")
+print(f"Root's left's right (should be 3): {test_tree.root.left_child.right_child.data}")
